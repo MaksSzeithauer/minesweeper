@@ -8,10 +8,23 @@ body {
   width: 40px;
   height: 40px;
   background: #b0b0b0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 #board {
   display: grid;
-  grid-template-columns: repeat(9, 40px);
   gap: 1px;
 }
+
+.n1 { color: blue; }
+.n2 { color: green; }
+.n3 { color: red; }
+.n4 { color: darkblue; }
+.n5 { color: darkred; }
+.n6 { color: teal; }
+.n7 { color: black; }
+.n8 { color: gray; }
