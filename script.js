@@ -2,10 +2,10 @@ function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min) ) + min;
 }
 
-let ROWS = 9;
-let COLUMNS = 9;
+let ROWS = 16;
+let COLUMNS = 30;
 let TILES = ROWS*COLUMNS;
-let BOMBS = 10;
+let BOMBS = 99;
 
 const board = [];
 for(let i = 0;i<TILES;i++){
@@ -44,6 +44,20 @@ for(let b = 0; b<BOMBS; b++){
     }
   }
 }
-for(let r = 0; r <ROWS ;r++){
-console.log(board.slice(COLUMNS*r,COLUMNS*(r+1)).join(" "));
+
+const boardEl = document.getElementById("board");
+boardEl.style.gridTemplateColumns = `repeat(${COLUMNS}, 40px)`;
+
+for (let i = 0; i < TILES; i++) {
+  const cell = document.createElement("div");
+  cell.classList.add("cell");
+
+  if(board[i]==9){
+    cell.textContent = "9"
+  }
+  else if(board[i]>0){
+    cell.textContent = board[i];
+  }
+  cell.classList.add("n" + board[i]);
+  boardEl.appendChild(cell);
 }
