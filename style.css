@@ -1,23 +1,55 @@
 body {
   font-family: Arial, sans-serif;
-  background: dimgray;
+  background: #e0c9a6;
   color: white;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.cell {
-  width: 40px;
-  height: 40px;
-  background: #b0b0b0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 20px;
+h1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 16px 0;
+  text-align: center;
 }
 
 #board {
   display: grid;
   gap: 1px;
+}
+
+.tile {
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  background: #8a8a8a;
+  border: 2px outset #bbb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 20px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.tile:not(.revealed):hover {
+  background: #9a9a9a;
+}
+
+.tile.revealed {
+  background: #a1a1a1;
+  border: 1px solid #999;
+  cursor: default;
+}
+
+.tile.bomb {
+  background: #e55;
 }
 
 .n1 { color: blue; }
